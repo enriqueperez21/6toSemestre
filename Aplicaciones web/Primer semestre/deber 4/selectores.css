@@ -1,0 +1,30 @@
+p{
+    color: black;
+    border-style: none;
+}
+
+.aviso{
+    border: 1px solid;
+    border-color: red;
+}
+
+.importante{
+    border-width: 3px;
+    background: silver;
+}
+#total{
+    font-weight: bold;
+}
+
+#resume{
+    border: 1px solid;
+    padding: 5px;
+    text-align: justify;
+    width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#resume > h2{
+    text-align: center;
+}
