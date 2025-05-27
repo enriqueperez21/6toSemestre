@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Saludo - Ejemplo Completo HTML + CSS + Javascript</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <header>
+        <h1>Laboratorio</h1>
+        <nav class="menu">
+            <a href="index.html">Inicio</a>
+            <a href="saludo.html">Saludo</a>
+            <a href="suma.html">Suma</a>
+            <a href="tabla.html">Tabla</a>
+            <a href="tareas.html">Tareas</a>
+            <a href="promedios.html">Promedios</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Bienvenido</h2>
+        <input type="text" id="nombre" placeholder="Ingresa tu nombre">
+        <button onclick="saludar()">Saludar</button>
+        <p id="resultadoSaludo"></p>
+
+        <div class="volver-inicio">
+            <a href="index.html" class="boton-volver">Volver al inicio</a>
+        </div>
+    </main>
+    <footer>
+        <p>2025 - Laboratorio Javascript - EPN</p>
+        <em>By EnriquePerez21</em>
+        <script src="script.js"></script>
+    </footer>
+</body>
+</html>

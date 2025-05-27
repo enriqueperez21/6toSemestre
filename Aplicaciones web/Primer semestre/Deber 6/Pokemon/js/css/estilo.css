@@ -1,0 +1,19 @@
+#pokemon_widget{
+    width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-family: sans-serif;
+    text-align: center;
+}
+input[type="text"]{
+    width: 80%;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+#pokemon_img{
+    width: 250px;
+    height: 250px;
+    margin-top: 15px;
+}

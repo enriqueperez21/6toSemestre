@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Tareas - Ejemplo Completo HTML + CSS + Javascript</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <header>
+        <h1>Laboratorio</h1>
+        <nav class="menu">
+            <a href="index.html">Inicio</a>
+            <a href="saludo.html">Saludo</a>
+            <a href="suma.html">Suma</a>
+            <a href="tabla.html">Tabla</a>
+            <a href="tareas.html">Tareas</a>
+            <a href="promedios.html">Promedios</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Lista de tareas</h2>
+        <input type="text" id="tareaInput" placeholder="Nueva tarea">
+        <button onclick="agregarTarea()">Agregar</button>
+        <ul id="listaTareas"></ul>
+
+        <div class="volver-inicio">
+            <a href="index.html" class="boton-volver">Volver al inicio</a>
+        </div>
+
+        <div class="volver-inicio">
+            <a href="index.html" class="boton-volver">Volver al inicio</a>
+        </div>
+    </main>
+    <footer>
+        <p>2025 - Laboratorio Javascript - EPN</p>
+        <script src="script.js"></script>
+    </footer>
+</body>
+</html>
