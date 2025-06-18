@@ -1,0 +1,334 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: sans-serif;
+  background-color: #121212;
+  color: #f0f0f0;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button, input, select, textarea {
+  font: inherit;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+/* Estilo MARVEL general */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+/* CABECERA CON LOGO Y SESIÓN */
+#cabecera {
+  background-color: #e62429;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+#cabecera::before {
+  content: "";
+  display: block;
+  background-image: url('assets/Marvel_Logo.svg.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: 180px;
+  height: 60px;
+  margin-bottom: 1rem;
+}
+
+#cabecera .cabecera {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 1rem;
+}
+
+/* INPUTS Y LOGIN */
+#cabecera input[type="email"],
+#cabecera input[type="password"] {
+  padding: 0.5rem 1rem;
+  border: 1px solid white;
+  border-radius: 4px;
+  background-color: transparent;
+  color: white;
+  width: 200px;
+}
+
+#cabecera input::placeholder {
+  color: #f4cccc;
+}
+
+#botonLogin {
+  background-color: white;
+  color: #e62429;
+  font-weight: bold;
+  padding: 0.5rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  min-width: 100px;
+  text-align: center;
+}
+
+#botonLogin:hover {
+  background-color: #f0f0f0;
+}
+
+/* FORMULARIO DE BÚSQUEDA */
+#formBusqueda {
+  background-color: #121212;
+  display: flex;
+  justify-content: flex-start;
+  padding: 2rem;
+}
+
+#formBusqueda form {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  background-color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  color: #000;
+}
+
+#formBusqueda label {
+  font-weight: bold;
+  color: #000;
+}
+
+#formBusqueda input[type="text"] {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  color: #000;
+  width: 220px;
+  background-color: white;
+}
+
+#formBusqueda input::placeholder {
+  color: #888;
+}
+
+#formBusqueda #botonBuscar {
+  background-color: #e62429;
+  color: white;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  border: none;
+}
+
+#formBusqueda #botonBuscar:hover {
+  background-color: #c21d23;
+}
+
+#formBusqueda input:focus {
+  border-color: #f8d7da;
+  outline: none;
+}
+
+/* RESULTADOS DE CÓMICS */
+#listado {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 2rem;
+  justify-content: center;
+  background-color: #121212;
+  min-height: 100vh;
+}
+
+#verDetalles,
+#guardarFav {
+  margin-top: 0.5rem;
+  background-color: #e62429;
+  color: white;
+  border-radius: 4px;
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+}
+
+#verDetalles:hover,
+#guardarFav:hover {
+  background-color: #c21d23;
+}
+
+.contenedor-comics {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.comic {
+  background-color: #2a2a2a;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.comic:hover {
+  height: auto; /* 🔁 Importante: permite expandirse para mostrar el texto */
+  transform: scale(1.05);
+}
+
+.comic h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+  height: auto;
+  white-space: normal;
+  overflow: hidden;
+}
+
+.comic img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  transition: opacity 0.4s ease;
+}
+
+.comic:hover img {
+  opacity: 0;
+  height: 0;
+  margin: 0;
+}
+
+/* Oculta texto inicialmente */
+.comic p {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+  margin-top: 0.5rem;
+  padding: 0 0.3rem;
+  text-align: justify;
+}
+
+/* Texto visible en hover */
+.comic:hover p {
+  max-height: 300px;
+  opacity: 1;
+}
+
+/* Botones alineados horizontalmente */
+.botones-comic {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.comic button,
+.comic input[type="button"] {
+  background-color: #e62429;
+  color: white;
+  border-radius: 4px;
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+  flex: 1;
+}
+
+.comic button:hover,
+.comic input[type="button"]:hover {
+  background-color: #c21d23;
+}
+
+.detalle-comic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  color: white;
+  max-width: 800px;
+  margin: 2rem auto;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.05);
+}
+
+.detalle-comic h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.detalle-comic img {
+  width: 280px;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.15);
+}
+
+.detalle-comic p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  text-align: justify;
+  line-height: 1.5;
+  max-width: 100%;
+  padding: 0 1rem;
+}
+
+.detalle-comic strong {
+  color: #f8d7da;
+}
+
+#botonCerrar {
+  margin-top: 2rem;
+  background-color: #e62429;
+  color: white;
+  border-radius: 6px;
+  padding: 0.6rem 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+#botonCerrar:hover {
+  background-color: #c21d23;
+}
