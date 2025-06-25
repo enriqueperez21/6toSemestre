@@ -1,5 +1,6 @@
 import mxnet as mx
 from mxnet import nd
+import re
 
 class SML:
     def __init__(self):
@@ -9,6 +10,36 @@ class SML:
     def add_to_class(cls, method_name, method_func):
         setattr(cls, method_name, method_func)
 
+    @staticmethod
+    def load_csv(file_path, **kwargs):
+        delimiter = kwargs.get("delimiter", r"[,;\t]")
+
+        with open(file_path, "r", encoding="utf-8") as f:
+            header = f.readline().rstrip("\r\n")
+            dataset = []
+
+            for line in f:
+                row = line.rstrip("\r\n")
+                # Salta si está vacía o solo espacios
+                if not row or re.match(r"^\s*$", row):
+                    continue
+                split_row = re.split(delimiter, row)
+                dataset.append(split_row)
+
+        return dataset, header
+    
+    @staticmethod
+    def str_column_to_float(dataset, column, **kwargs):
+        precision = kwargs.get("precision", 1)
+
+        first_val = str(dataset[0][column]).strip()
+        if not re.match(r"^\d", first_val):
+            return
+
+        fmt = "%." + str(precision) + "f"
+
+        for row in dataset:
+            row[column] = fmt % float(row[column])
     @staticmethod
     def dataset_minmax(dataset):
         """
