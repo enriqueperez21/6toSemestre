@@ -186,3 +186,55 @@ class SML:
         majority_class = nd.argmax(counts).asscalar()
         return nd.full((test.shape[0],), majority_class)
     
+    @staticmethod
+    def evaluate_algorithm_cross_validation_split( dataset, algorithm, *algo_posargs, n_folds=10, metric=None, return_all=False, **algo_kwargs ):
+        folds = SML.cross_validation_split(dataset, n_folds=n_folds)
+        scores       = []
+        train_losses = []
+        test_losses  = []
+        predictions  = []
+        actuals      = []
+
+        for i, fold in enumerate(folds):
+            train_set = mx.nd.concat(*[f for j, f in enumerate(folds) if j != i], dim=0)
+
+            test_set = fold.copy()
+            test_set[:, -1] = float("nan")
+
+            returned = algorithm(train_set, test_set, *algo_posargs, **algo_kwargs)
+
+            if isinstance(returned, tuple):
+                predicted, train_loss, test_loss = (returned + (None, None))[:3]
+            else:
+                predicted, train_loss, test_loss = returned, None, None
+
+            # 4) etiquetas reales del fold
+            actual = fold[:, -1]
+
+            if metric:
+                m = metric.lower()
+                if "accuracy" in m:
+                    score = SML.accuracy_metric(actual, predicted)
+                elif "rmse" in m:
+                    score = SML.rmse_metric(actual, predicted)
+                else:
+                    raise ValueError("Métrica no reconocida")
+            else:
+                has_decimals = mx.nd.sum(actual != actual.astype("int64")).asscalar() > 0
+                score = (
+                    SML.rmse_metric(actual, predicted)
+                    if has_decimals
+                    else SML.accuracy_metric(actual, predicted)
+                )
+
+            # almacenar resultados de este fold
+            scores.append(score)
+            train_losses.append(train_loss)
+            test_losses.append(test_loss)
+            predictions.append(predicted)
+            actuals.append(actual)
+        
+        if return_all:
+            return scores, train_losses, test_losses, actuals, predictions
+        return scores
+    
