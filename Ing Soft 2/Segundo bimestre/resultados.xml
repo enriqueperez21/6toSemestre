@@ -1,0 +1,107 @@
+<quiz>
+  <question type="multichoice">
+    <name><text>Simulación pregunta 1</text></name>
+    <questiontext format="html">
+      <text><![CDATA[
+        ¿Cuál de las siguientes opciones describe mejor el propósito del enfoque ágil hacia la calidad del software?
+      ]]></text>
+    </questiontext>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+
+    <answer fraction="100">
+      <text><![CDATA[
+        La calidad se logra mediante la prevención de defectos.
+      ]]></text>
+      <feedback><text><![CDATA[
+        Correcto. El enfoque ágil promueve la prevención de errores desde el inicio en lugar de solo detectarlos al final.
+      ]]></text></feedback>
+    </answer>
+
+    <answer fraction="0">
+      <text><![CDATA[
+        La gestión de defectos es la clave para entregar software de alta calidad.
+      ]]></text>
+      <feedback><text><![CDATA[
+        Incorrecto. Aunque es importante gestionar los defectos, el enfoque ágil prioriza la prevención por encima de la corrección.
+      ]]></text></feedback>
+    </answer>
+
+    <answer fraction="0">
+      <text><![CDATA[
+        La detección de defectos a través de pruebas rigurosas es esencial.
+      ]]></text>
+      <feedback><text><![CDATA[
+        Incorrecto. Las pruebas son importantes, pero el enfoque ágil busca evitar los defectos en primer lugar.
+      ]]></text></feedback>
+    </answer>
+
+    <answer fraction="0">
+      <text><![CDATA[
+        La eliminación de procesos innecesarios mejora la calidad del software.
+      ]]></text>
+      <feedback><text><![CDATA[
+        Incorrecto. Eliminar procesos innecesarios puede mejorar la eficiencia, pero no garantiza por sí solo la calidad.
+      ]]></text></feedback>
+    </answer>
+
+    <generalfeedback>
+      <text><![CDATA[
+        En el enfoque ágil, se pone énfasis en prevenir defectos desde etapas tempranas del desarrollo para asegurar la calidad continua.
+      ]]></text>
+    </generalfeedback>
+  </question>
+
+  <question type="multichoice">
+    <name><text>Simulación pregunta 2</text></name>
+    <questiontext format="html">
+      <text><![CDATA[
+        ¿Qué rol dentro del equipo ágil actúa como la voz del cliente?
+      ]]></text>
+    </questiontext>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+
+    <answer fraction="100">
+      <text><![CDATA[
+        Product Owner
+      ]]></text>
+      <feedback><text><![CDATA[
+        Correcto. El Product Owner representa las necesidades del cliente y prioriza el backlog para maximizar el valor.
+      ]]></text></feedback>
+    </answer>
+
+    <answer fraction="0">
+      <text><![CDATA[
+        Scrum Master
+      ]]></text>
+      <feedback><text><![CDATA[
+        Incorrecto. El Scrum Master facilita el proceso pero no representa directamente al cliente.
+      ]]></text></feedback>
+    </answer>
+
+    <answer fraction="0">
+      <text><![CDATA[
+        Líder del equipo de desarrollo
+      ]]></text>
+      <feedback><text><![CDATA[
+        Incorrecto. En Scrum no existe el rol de líder del equipo de desarrollo como voz del cliente.
+      ]]></text></feedback>
+    </answer>
+
+    <answer fraction="0">
+      <text><![CDATA[
+        Gerente de proyecto
+      ]]></text>
+      <feedback><text><![CDATA[
+        Incorrecto. Scrum no contempla el rol de gerente de proyecto como representante del cliente.
+      ]]></text></feedback>
+    </answer>
+
+    <generalfeedback>
+      <text><![CDATA[
+        En Scrum, el Product Owner es quien actúa como enlace entre el cliente y el equipo de desarrollo, asegurando que se construya el producto correcto.
+      ]]></text>
+    </generalfeedback>
+  </question>
+</quiz>

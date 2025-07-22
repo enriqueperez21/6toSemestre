@@ -1,0 +1,313 @@
+:root {
+  --primary: #c78f16;
+  --primary-light: #e7651a;
+  --primary-dark: #e97909;
+  --accent: #ff7043;
+  --text: #2d3748;
+  --text-light: #4a5568;
+  --light: #0b4885;
+  --white: #ffffff;
+  --overlay: rgba(40, 42, 55, 0.85);
+}
+
+body {
+  --primary: #c78f16;
+  font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+  background: url('./assets/fondo.jpg') no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  color: var(--text);
+  line-height: 1.6;
+  position: relative; /* Necesario para el pseudo-elemento */
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7); /* Ajusta el valor (0.4) para más/menos oscuridad */
+  z-index: -1; /* Coloca la capa detrás del contenido */
+}
+
+.container {
+  max-width: 540px;
+  margin: 40px auto;
+  background: rgba(255, 255, 255, 0.88);
+  padding: 32px 40px;
+  border-radius: 20px;
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.2),
+    0 5px 15px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+input, button {
+  margin: 14px 0;
+  padding: 16px 20px;
+  width: 100%;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: none;
+  box-sizing: border-box;
+  transition: all 0.3s ease-out;
+}
+
+input {
+  display: block;
+  margin: 0 auto;
+  max-width: 90%;
+  width: fit-content;
+  min-width: 500px; /* Mismo ancho mínimo que el botón para consistencia */
+  padding: 16px 24px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+}
+
+/* Para mantener la coherencia con el botón */
+input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(94, 53, 177, 0.2);
+}
+
+input::placeholder {
+  color: #a0aec0;
+  font-weight: 400;
+}
+
+button {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: var(--white);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 
+    0 4px 6px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.08);
+  /* Centrado horizontal */
+  display: block;
+  margin: 0 auto;
+  /* Tamaño y espaciado */
+  padding: 16px 32px;
+  /* Manteniendo tus propiedades de ancho */
+  max-width: 90%;
+  width: fit-content;
+  min-width: 500px;
+}
+
+button:hover {
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+  transform: translateY(-2px);
+  box-shadow: 
+    0 7px 14px rgba(0, 0, 0, 0.15),
+    0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+nav {
+  background: linear-gradient(135deg, rgba(132, 77, 0, 0.95) 0%, rgba(233, 168, 6, 0.95) 100%) !important;
+  padding: 18px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px); /* Para Safari */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+nav a {
+  color: rgba(240, 240, 240, 0.8);
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: 8px 16px;
+  border-radius: 8px;
+  position: relative;
+}
+
+nav a:hover {
+  color: var(--white);
+  background: rgba(162, 113, 22, 0.875);
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: all 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 60%;
+  left: 20%;
+}
+
+h2 {
+  text-align: center;
+  color: var(--primary-dark);
+  margin-bottom: 28px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  border-radius: 3px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  background: rgba(188, 175, 117, 0.95);
+  margin: 0 auto 16px auto; /* Centrado y margen solo abajo */
+  padding: 20px 24px;
+  border-radius: 12px;
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.05),
+    0 1px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  max-width: 90%; /* Limita el ancho máximo */
+  width: fit-content; /* Ajusta al contenido con un mínimo */
+  min-width: 800px; /* Ancho mínimo para mantener elegancia */
+}
+
+li:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 10px 20px rgba(0, 0, 0, 0.08),
+    0 6px 6px rgba(0, 0, 0, 0.05);
+}
+
+li .text {
+  flex: 1;
+  font-weight: 500;
+  color: var(--text-light);
+}
+
+li button {
+  width: auto;
+  padding: 10px 18px;
+  background: linear-gradient(135deg, var(--accent), #f4511e);
+  margin-left: 20px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+li button:hover {
+  background: linear-gradient(135deg, #ff8a65, #f4511e);
+}
+
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0);
+  }
+}
+
+.container {
+  animation: fadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Efecto de vidrio esmerilado */
+.glass-effect {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+  width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+  width: 100%;
+}
+h1 {
+  color: #ffffff; /* Morado elegante (puedes usar cualquier HEX, RGB o variable) */
+}
+
+select {
+  display: block;
+  margin: 14px auto;
+  max-width: 90%;
+  min-width: 500px;
+  padding: 16px 24px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--text);
+  transition: all 0.3s ease;
+  font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(199, 143, 22, 0.3);
+}
+
+select option {
+  padding: 10px;
+  background: #fff;
+  color: var(--text);
+}

@@ -1,0 +1,28 @@
+Listado de rutas de carpetas
+El número de serie del volumen es F430-17F2
+C:\USERS\OZZY\ONEDRIVE - ESCUELA POLITÉCNICA NACIONAL\DOCUMENTOS\2025A\APPSWEB\PROYECTO2DOBIM\BACKEND\BACKEND\APP
+|   database.py
+|   main.py
+|   models.py
+|   schemas.py
+|   
++---routes
+|   |   reservas.py
+|   |   salas.py
+|   |   
+|   \---__pycache__
+|           reservas.cpython-313.pyc
+|           reservas.cpython-39.pyc
+|           salas.cpython-313.pyc
+|           salas.cpython-39.pyc
+|           
+\---__pycache__
+        database.cpython-313.pyc
+        database.cpython-39.pyc
+        main.cpython-313.pyc
+        main.cpython-39.pyc
+        models.cpython-313.pyc
+        models.cpython-39.pyc
+        schemas.cpython-313.pyc
+        schemas.cpython-39.pyc
+        
